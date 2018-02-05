@@ -1,0 +1,1 @@
+var mydata = [{"thesis_id":"CCS098","Citations":"3"},{"thesis_id":"CCS187","Citations":"3"},{"thesis_id":"CCS219","Citations":"1"},{"thesis_id":"CCS345","Citations":"2"},{"thesis_id":"CCS456","Citations":"51"},{"thesis_id":"CCS789","Citations":"3"},{"thesis_id":"CCS987","Citations":"20"},{"thesis_id":"SMP123","Citations":"38"}];
