@@ -163,6 +163,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
        <li class="active"><a href="student_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
+       <li><a href="users_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>
         </li>
       </ul>
     </section>

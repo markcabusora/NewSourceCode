@@ -160,8 +160,8 @@
       <ul class="sidebar-menu" data-widget="tree">
       
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="admin_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
-        <li><a href="admin_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>
+        <li><a href="users_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
+        <li><a href="admin_requests.php"><i class="fa fa-book"></i> <span>Requests</span></a></li>
         
       </ul>
 
@@ -187,11 +187,21 @@
     <!-- Main content -->
     <section class="content container-fluid">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-2">
+  
+        </div>
+
+        <div class="col-md-8">
           <h3><center><br>If you want to request for upload code, click the button below:<br><br>
           <button type="button" class="btn btn-flat btn-primary btn-lg">Request</button>
           </center></h3>
         </div>
+
+        <div class="col-md-2">
+          
+        </div>
+
+
       </div>
 
                 </div>

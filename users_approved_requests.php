@@ -187,13 +187,19 @@
     <!-- Main content -->
     <section class="content container-fluid">
       <div class="row">
-        <div class="col-md-12">
+
+        <div class ="col-md-3">
+        </div>
+
+        <div class="col-md-6">
           <h3><center>Your upload code is:<br><br>
             <input type="text" class="form-control" readonly="readonly" style="width: 20%"><br><br>
             <p><h3>Enter upload code here: </h3><br><input type="text" class="form-control" style="width: 20%"></p><br>
           <button type="button" class="btn btn-flat btn-primary btn-lg">Enter Code</button>
           </center></h3>
         </div>
+
+        <div class="col-md-3"></div>
       </div>
 
                 </div>
