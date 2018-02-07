@@ -56,7 +56,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Thesys | Dashboard (Faculty)</title>
+  <title>Thesys | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -162,8 +162,12 @@
 
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
+<<<<<<< HEAD
        <li class="active"><a href="student_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
        <li><a href="users_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>
+=======
+       <li class="active"><a href="student_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+>>>>>>> 0ec9209397a69dc18b641a53d7877f27604e082a
         </li>
       </ul>
     </section>
@@ -187,19 +191,19 @@
         <div class="col-sm-8">
           <div class="box">
             <div class="box-header">
+              <form action="student_dashboard.php" method="post">
               <div class="form-group">
                 <div class="input-group margin">
                 <div class="input-group-btn">
-                <form action="student_dashboard.php" >
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Search for
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Search for&nbsp;
                     <span class="fa fa-caret-down" style="width: 30%"></span></button>
                   <ul class="dropdown-menu">
                   </ul>
                 </div>
                 <!-- /btn-group -->
-                <input type="text" class="form-control" placeholder="Search" style="width: 84%">
-                <button type="button" class="btn btn-primary" btn-sm style="margin-left: 1%"><i class="fa fa-search"><a href="#"></a></i></button>
-                <button type="button" class="btn btn-primary" style="margin-left: 1%"><i class="fa fa-close"><a href="#"></a></i></button>
+                <input type="text" class="form-control" placeholder="Search" style="width: 70%" autofocus="">
+                <input type="submit" name="search" value="Search" class="btn btn-default" btn-sm style="margin-left: 1%">
+                <input type="reset" name="clear" value="Clear" class="btn btn-default" style="margin-left: 1%">
                 </form>
                 </div>
               </div>
@@ -218,17 +222,17 @@
 
               <div class="btn-group" style="margin-top: 1%">
                 <div class="btn-group"><a href="users_dashboard.php?cat=mostcited"><button type="button" class="btn btn-primary">Most Cited</button></a></div>
-                <div class="btn-group"><button type="button" class="btn btn-primary">Most Viewed</button></div>
-                <div class="btn-group"><button type="button" class="btn btn-primary">Most Downloaded</button></div>
+                <div class="btn-group"><button type="button" class="btn btn-primary" style="margin-left: 4%">Most Viewed</button></div>
+                <div class="btn-group"><button type="button" class="btn btn-primary" style="margin-left: 6%">Most Downloaded</button></div>
               </div>
 
-              <div class="btn-group pull-right" style="margin-top: 1%; margin-right: 2%">
+              <div class="btn-group pull-right" style="margin-top: 3%; margin-right: 2%">
                 <button type="button" class="btn bg-purple btn-circle btn-xs" 
-                      style="width: 30px; height: 30px; padding: 6px 0px; line-height: 1.42; border-radius: 15px;"></button>
+                      style="width: 15px; height: 15px; padding: 6px 0px; line-height: 1.42; border-radius: 15px;"></button>
                       <button type="button" class="btn bg-olive btn-circle btn-xs"
-                      style="width: 30px; height: 30px; padding: 6px 0px; line-height: 1.42; border-radius: 15px;"></button>
+                      style="width: 15px; height: 15px; padding: 6px 0px; line-height: 1.42; border-radius: 15px;"></button>
                       <button type="button" class="btn bg-orange btn-circle btn-xs"
-                      style="width: 30px; height: 30px; padding: 6px 0px; line-height: 1.42; border-radius: 15px;"></button>
+                      style="width: 15px; height: 15px; padding: 6px 0px; line-height: 1.42; border-radius: 15px;"></button>
               </div>
               <h5>Search Query: <?php if(!empty(isset($_GET['namestart']))) {echo "Thesis title that starts with letter ".$nameStart;}?></h5>
             </div>
@@ -242,7 +246,7 @@
                   $queryAuthorsResult = mysqli_query($conn, $queryAuthors);
             ?>
             <div class="box-body">
-                  <a href="student_thesis_view.php?thesis_id=<?php echo $rowThesis['thesis_id']; ?>"><h4><?php echo $rowThesis['thesis_title'] ?></h4></a>
+                  <a href="users_thesis_view.php?thesis_id=<?php echo $rowThesis['thesis_id']; ?>"><h4><?php echo $rowThesis['thesis_title'] ?></h4></a>
                   <i class="fa fa-users">
             <?php  
                   while($rowAuthors = mysqli_fetch_array($queryAuthorsResult))

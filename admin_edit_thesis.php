@@ -398,7 +398,7 @@ function alphaOnly(e) {
         <small>Administrators</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="admin_thesis.php"><i class="fa fa-book"></i>Theses</a></li>
         <li class="active">Edit Thesis (Administrator)</li>
       </ol>
 
@@ -411,12 +411,12 @@ function alphaOnly(e) {
                <table class="table table">
                  <tr>
                    <td>Thesis Code:</td>
-                   <td> <input type="text" name="edit_txtCode" class="form-control" required="" style="width: 95%" value="<?php echo $thesisIDtoEdit?>" readonly="readonly"></td>
+                   <td> <input type="text" name="edit_txtCode" class="form-control" required="" style="width: 85%" value="<?php echo $thesisIDtoEdit?>" readonly="readonly"></td>
                  </tr>
 
                  <tr>
                    <td>Thesis Title:</td>
-                   <td><input type="text" name="edit_txtTitle" class="form-control" onkeypress="return alphaOnly(event);" required="" style="width: 95%" value="<?php echo $rowThesisToEdit['thesis_title']?>"></td>
+                   <td><input type="text" name="edit_txtTitle" class="form-control" required="" style="width: 85%" value="<?php echo $rowThesisToEdit['thesis_title']?>"></td>
                  </tr>
 
                  <tr>
@@ -427,7 +427,7 @@ function alphaOnly(e) {
 
                  <tr>
                   <td>Year Accomplished</td>
-                  <td><input type="text" name="edit_txtYear" class="form-control" required="" style="width: 95%" value="<?php echo $rowThesisToEdit['year_accomplished']?>"></td>
+                  <td><input type="text" name="edit_txtYear" class="form-control" required="" style="width: 85%" value="<?php echo $rowThesisToEdit['year_accomplished']?>"></td>
                  </tr>
                  <tr>
                   <td>Thesis Abstract</td>
@@ -435,7 +435,7 @@ function alphaOnly(e) {
                     <?php
                       $rowAbstract = mysqli_fetch_assoc($abstractToEditRes);
                     ?>
-                     <textarea name="edit_txtAbstract" style="resize: none; height: 200px; width: 250px; font-size: 16px; vertical-align: left;"><?php echo $rowAbstract['abstract']?></textarea>
+                     <textarea name="edit_txtAbstract" style="resize: none; height: 200px; width: 220px; font-size: 16px; vertical-align: left;"><?php echo $rowAbstract['abstract']?></textarea>
                    </td>
                  </td>
                  </tr>
@@ -493,7 +493,7 @@ function alphaOnly(e) {
                    <td><input type="text" name="edit_txtFirstName" class="form-control" onkeypress="return alphaOnly(event);" required="" value="<?php echo $rowAuthorsToEdit['first_name']?>"></td>
                 </tr>
                 <tr>
-                   <td><input type="text" name="edit_txtMiddleInitial" class="form-control" onkeypress="return alphaOnly(event);" required="" value="<?php echo $rowAuthorsToEdit['middle_initial']?>"></td>
+                   <td><input type="text" name="edit_txtMiddleInitial" class="form-control" onkeypress="return alphaOnly(event);" value="<?php echo $rowAuthorsToEdit['middle_initial']?>"></td>
                 </tr>
                 <tr>
                   <td>
@@ -520,7 +520,7 @@ function alphaOnly(e) {
                    <td><input type="text" name="add_txtFirstName" class="form-control" onkeypress="return alphaOnly(event);" required="" placeholder="Enter Author's First Name"></td>
                 </tr>
                 <tr>
-                   <td><input type="text" name="add_txtMiddleInitial" class="form-control" onkeypress="return alphaOnly(event);" required="" placeholder="Enter Author's Middle Initial"></td>
+                   <td><input type="text" name="add_txtMiddleInitial" class="form-control" onkeypress="return alphaOnly(event);" placeholder="Enter Author's Middle Initial"></td>
                 </tr>
                 <tr>
                   <td>
@@ -580,7 +580,7 @@ function alphaOnly(e) {
                   <td><input type="text" name="edit_txtFirstName" class="form-control" onkeypress="return alphaOnly(event);" required="" value="<?php echo $rowEvaluatorToEdit['first_name'] ?>"></td>
                 </tr>
                 <tr>
-                  <td><input type="text" name="edit_txtMiddleInitial" class="form-control" onkeypress="return alphaOnly(event);" required="" value="<?php echo $rowEvaluatorToEdit['middle_initial'] ?>"></td>
+                  <td><input type="text" name="edit_txtMiddleInitial" class="form-control" onkeypress="return alphaOnly(event);" value="<?php echo $rowEvaluatorToEdit['middle_initial'] ?>"></td>
                 </tr>
                 <tr>
                   <td><input type="hidden" name="thesis_id" value="<?php echo $thesisID?>"></td>
