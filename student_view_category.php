@@ -70,7 +70,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="users_dashboard.php" class="logo">
+    <a href="student_view_category.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>T</b>SYS</span>
       <!-- logo for regular state and mobile devices -->
@@ -137,10 +137,9 @@
 
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-       <li class="active"><a href="student_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
+       <li class="active"><a href="student_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-book"></i><span>Requests</span>
-          </a>
+          
         </li>
       </ul>
     </section>
@@ -150,7 +149,6 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
       <h1>
         Categories
       </h1>
@@ -186,10 +184,13 @@
           </div>
         </div>
 
+
+
         <div class="col-sm-8">
           <div class="box">
             <div class="box-header">
               <div class="form-group">
+                <form action="student_view_category.php" method="post">
                 <div class="input-group margin">
                 <div class="input-group-btn">
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Search for
@@ -203,9 +204,10 @@
                   </ul>
                 </div>
                 <!-- /btn-group -->
-                <input type="text" class="form-control" placeholder="Search" style="width: 84%">
-                <button type="button" class="btn btn-primary" btn-sm style="margin-left: 1%"><i class="fa fa-search"><a href="#"></a></i></button>
-                <button type="button" class="btn btn-primary" style="margin-left: 1%"><i class="fa fa-close"><a href="#"></a></i></button>
+                <input type="text" class="form-control" placeholder="Search" style="width: 70%" autofocus="">
+                <input type="submit" name="search" value="Search" class="btn btn-default" btn-sm style="margin-left: 1%">
+                <input type="reset" name="clear" value="Clear" class="btn btn-default" style="margin-left: 1%">
+                </form>
                 </div>
               </div>
               <h4>Search Result/s:</h4>

@@ -153,7 +153,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Thesys | Thesis Details Page (Faculty)</title>
+  <title>Thesys | Thesis Details Page</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -273,7 +273,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="faculty_dashboard.php" class="logo">
+    <a href="users_dashboard.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>T</b>SYS</span>
       <!-- logo for regular state and mobile devices -->
@@ -346,7 +346,7 @@
 
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-       <li class="active"><a href="users_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
+       <li class="active"><a href="users_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
        <li><a href="users_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>
       </ul>
     </section>
@@ -359,7 +359,7 @@
     <section class="content-header">
       <h1>
         Thesis Details
-        <small>Faculty</small>
+        
       </h1>
     </section>
 

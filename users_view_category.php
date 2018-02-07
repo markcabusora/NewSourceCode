@@ -137,11 +137,8 @@
 
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-       <li class="active"><a href="users_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-book"></i><span>Requests</span>
-          </a>
-        </li>
+       <li class="active"><a href="users_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="users_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -190,6 +187,7 @@
         <div class="col-sm-8">
           <div class="box">
             <div class="box-header">
+              <form action="users_view_category.php" method="post">
               <div class="form-group">
                 <div class="input-group margin">
                 <div class="input-group-btn">
@@ -204,9 +202,10 @@
                   </ul>
                 </div>
                 <!-- /btn-group -->
-                <input type="text" class="form-control" placeholder="Search" style="width: 84%">
-                <button type="button" class="btn btn-primary" btn-sm style="margin-left: 1%"><i class="fa fa-search"><a href="#"></a></i></button>
-                <button type="button" class="btn btn-primary" style="margin-left: 1%"><i class="fa fa-close"><a href="#"></a></i></button>
+                <input type="text" class="form-control" placeholder="Search" style="width: 70%" autofocus="">
+                <input type="submit" name="search" value="Search" class="btn btn-default" btn-sm style="margin-left: 1%">
+                <input type="reset" name="clear" value="Clear" class="btn btn-default" style="margin-left: 1%">
+              </form>
                 </div>
               </div>
               <h4>Search Result/s:</h4>

@@ -342,7 +342,7 @@ function alphaOnly(e) {
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li><a href="admin_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
+        <li><a href="admin_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         <li>
           <a href="admin_users.php"><i class="fa fa-users"></i> <span>Users</span>
           </a>
@@ -368,8 +368,8 @@ function alphaOnly(e) {
         <small>Administrators</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li class="active">Thesis (Administrator)</li>
+        <li><a href="admin_users.php"><i class="fa fa-users"></i>Users</a></li>
+        <li class="active">Theses (Administrator)</li>
       </ol>
     <!--ADD ADMIN MODAL-->
     <div class="modal fade" id="modal_addThesis">
@@ -468,7 +468,7 @@ function alphaOnly(e) {
                       <tr>
                             <td>Category Name</td>
                             <td> 
-                              <input type="text" name="add_txtLastName" class="form-control" onkeypress="return alphaOnly(event);" required="" style="text-transform: uppercase;">
+                              <input type="text" name="" class="form-control" onkeypress="return alphaOnly(event);" required="">
                             </td>
                       </tr>
                         
@@ -501,7 +501,7 @@ function alphaOnly(e) {
                   </div>
                   </th>
                   <th>
-                    <input type="text" class="form-control" placeholder="Search" name="keyword">
+                    <input type="text" class="form-control" placeholder="Search" name="keyword" autofocus="">
                   </th>
                   <th>
                     <label><input type="checkbox" value="Active" name="chkActiveOrNot" checked="checked">Active</label>

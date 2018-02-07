@@ -160,7 +160,7 @@
 
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-       <li class="active"><a href="admin_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
+       <li><a href="admin_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
        <li>
           <a href="admin_users.php"><i class="fa fa-users"></i> <span>Users</span>
           </a>
@@ -181,7 +181,7 @@
     <section class="content-header">
       <h1>
         Thesis Details
-        <small>Faculty</small>
+        <small>Administrator</small>
       </h1>
     </section>
 
