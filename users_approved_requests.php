@@ -101,13 +101,13 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
              
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="images/user.png" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php echo $rowLoggedUser['user_type']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="images/user.png" class="img-circle" alt="User Image">
                 <p>
                   <?php echo $rowLoggedUser['last_name'].", ";?>
                   <?php echo $rowLoggedUser['first_name']." ";?>
@@ -140,7 +140,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="images/user.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>

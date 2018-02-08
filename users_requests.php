@@ -101,13 +101,13 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
              
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="images/user.png" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php echo $rowLoggedUser['user_type']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="images/user.png" class="img-circle" alt="User Image">
                 <p>
                   <?php echo $rowLoggedUser['last_name'].", ";?>
                   <?php echo $rowLoggedUser['first_name']." ";?>
@@ -140,7 +140,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="images/user.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>
@@ -160,13 +160,12 @@
       <ul class="sidebar-menu" data-widget="tree">
       
         <!-- Optionally, you can add icons to the links -->
-<<<<<<< HEAD
-        <li><a href="users_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
-        <li><a href="admin_requests.php"><i class="fa fa-book"></i> <span>Requests</span></a></li>
-=======
+       <!-- <li><a href="users_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>-->
+        <!--<li><a href="admin_requests.php"><i class="fa fa-book"></i> <span>Requests</span></a></li>-->
+        
         <li><a href="users_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         <li><a href="users_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>
->>>>>>> 0ec9209397a69dc18b641a53d7877f27604e082a
+
         
       </ul>
 
