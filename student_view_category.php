@@ -98,7 +98,7 @@
               <li class="user-header">
                 <img src="images/user.png" class="img-circle" alt="User Image">
                 <p>
-                 
+                 <?php echo $rowLoggedUser['last_name']; echo ", "; echo $rowLoggedUser['first_name']; echo" "; echo $rowLoggedUser['middle_initial']; echo ".";?>
              </p>
               </li>
               <!-- Menu Body -->

@@ -109,9 +109,7 @@
               <li class="user-header">
                 <img src="images/user.png" class="img-circle" alt="User Image">
                 <p>
-                  <?php echo $rowLoggedUser['last_name'].", ";?>
-                  <?php echo $rowLoggedUser['first_name']." ";?>
-                  <?php echo $rowLoggedUser['middle_initial']."."?>
+                  <?php echo $rowLoggedUser['last_name']; echo ", "; echo $rowLoggedUser['first_name']; echo" "; echo $rowLoggedUser['middle_initial']; echo ".";?>
              </p>
               </li>
               <!-- Menu Body -->
@@ -145,7 +143,7 @@
         <div class="pull-left info">
           <p>
             <br>
-            <?php echo $rowLoggedUser['first_name']."<br>".$rowLoggedUser['last_name'];?>
+           <?php echo $rowLoggedUser['last_name']; echo ", "; echo $rowLoggedUser['first_name']; echo" "; echo $rowLoggedUser['middle_initial']; echo ".";?>
           </p>
           <!-- Status -->
          
