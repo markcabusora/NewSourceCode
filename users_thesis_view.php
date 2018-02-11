@@ -367,7 +367,7 @@
     <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-4" style="height: 100%">
           <div class="box">
             <div class="box-header">
               <CENTER><font size="+2"><b>Abstract</b></font></CENTER>
