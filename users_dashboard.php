@@ -190,11 +190,12 @@
               <form action="users_dashboard.php" method="post">
               <div class="form-group">
                 <div class="input-group margin">
-                <div class="input-group-btn">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Search for&nbsp;
-                    <span class="fa fa-caret-down" style="width: 30%"></span></button>
-                  <ul class="dropdown-menu">
-                  </ul>
+                <div class="input-group-btn" style="width: 20%">
+                  <select class="form-control select2" name="category">
+                      <option selected="selected">Thesis Title</option>
+                      <option>Thesis Code</option>
+                      <option>Year Accomplished</option>
+                    </select>
                 </div>
                 <!-- /btn-group -->
                 <input type="text" class="form-control" placeholder="Search" style="width: 70%" autofocus="">
@@ -325,7 +326,7 @@
                 }
              ?>
 
-              <a href="#" class="pull-right">See More</a>
+              <a href="users_view_category.php" class="pull-right">See More</a>
             </div>
             <!-- /.box-body -->
           </div>

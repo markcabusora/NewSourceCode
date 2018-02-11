@@ -56,7 +56,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Thesys | Dashboard</title>
+  <title>Thesys | Dashboard (Student)</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -194,7 +194,7 @@
               <form action="student_dashboard.php" method="post">
               <div class="form-group">
                 <div class="input-group margin">
-                <div class="input-group-btn" style="width: 20%"">
+                <div class="input-group-btn" style="width: 20%">
                   <select class="form-control select2" name="category">
                       <option selected="selected">Thesis Title</option>
                       <option>Thesis Code</option>
@@ -327,7 +327,7 @@
                 }
              ?>
 
-              <a href="#" class="pull-right">See More</a>
+              <a href="student_view_category.php" class="pull-right">See More</a>
             </div>
             <!-- /.box-body -->
           </div>
