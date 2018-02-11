@@ -256,8 +256,6 @@
             <script type="text/javascript" src="chart/Chart.js"></script>
             <script type="text/javascript" src="chart/Chart.min.js"></script>
             <script type="text/javascript" src="chart/linegraph.js"></script> -->
-
-          <?php include("mostcitedthesisdata.php"); ?>
             <div class="chart-container">
               <!--<canvas id="mycanvas"></canvas> -->
               <div class="chart" id="line-chart" style="height:300px;"></div>
@@ -447,53 +445,25 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 
-
+<script src="load.js"></script>
+<script>
+$.ajax({
+    type: 'POST',
+    url: "mostcitedthesisdata.php",
+    dataType: "json",
+    async: false,
+    contentType: "application/json; charset=utf-8",
+    success: function (json) {
+        Morris.Bar({
+            element: 'line-chart',
+            data: json,
+            xkey: 'thesis_id',
+            ykeys: ['Citations'],
+            labels: ['Citations']
+        });
+    }
+});
+</script>
 
 </body>
 </html>
-
-<script src="load.js"></script>
-<script>
-  /*
-  function test(){
-    console.log("LOG THIS");
-    var req = new XMLHttpRequest();
-    req.onreadystatechange = function() {
-      if(this.readyState == 4 && this.status == 200) {
-        var dbObj = JSON.parse(this.reponseText);      
-        console.log(dbObj);
-        console.log('REQUEST SENT!');
-      }
-    };
-    req.open("GET", "loaddata.php", true);
-    req.send();
-
-  }*/
-
-
-
-  var line = new Morris.Bar({
-    element:'line-chart',
-    resize:'true',
-    data: [{"y":"CCS098","item1":"3"},{"y":"CCS187","item1":"3"},{"y":"CCS219","item1":"1"},{"y":"CCS345","item1":"2"},{"y":"CCS456","item1":"51"},{"y":"CCS789","item1":"3"},{"y":"CCS987","item1":"20"},{"y":"SMP123","item1":"38"}],
-    
-
-    
-    /**
-    data:[
-    {y:'2011 Q1', item1:2666},
-    {y:'2011 Q2', item1:3666},
-    {y:'2011 Q3', item1:4666},
-    {y:'2011 Q4', item1:3666},
-    ],
-    */
-    
-    
-    xkey:'y',
-    ykeys:['item1'],
-    labels:['Item 1'],
-    lineColors:['#000000'],
-    hideHover:'auto'
-  })
-
-</script>
