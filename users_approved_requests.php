@@ -149,8 +149,8 @@
       <ul class="sidebar-menu" data-widget="tree">
       
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="admin_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
-        <li><a href="admin_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>
+        <li><a href="users_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="users_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>
         
       </ul>
 
