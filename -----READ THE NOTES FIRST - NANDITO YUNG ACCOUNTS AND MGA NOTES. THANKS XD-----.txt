@@ -1,0 +1,76 @@
+Accounts
+
+Administrator : K5150047 PW- joriouz
+Faculty: F7CFA03D PW- 123456
+Student: K9012345 PW- wew
+
+Bugs:
+
+ADMIN SIDE
+
+Pagination
+
+	* bali sa admin, pagination ng records yung kulang. Kinoment ko nalang yung ABCD... na pagination kasi doon
+talaga ako hirap. Ngayon ang problema naman sa pagination, kapag nag-click ako ng page number (except number 1), hindi
+lumalabas yung remaining records. (Scenario ay wala pang search query si admin at nagki-click pa lang ng page number)
+	*yung sitwasyon sa unang asterisk ay ganun din sa thesis na module ng CMS (okay na yung CMS ng thesis except
+	except pagination.)
+	*kapag nag-search naman ako at nag-click ng page number, bumabalik siya sa una (ibig kong sabihin, kapag wala
+	ka pang ginagawa ay yung lumalabas na record ay yung pre-loaded -does it make sense?)
+	Ang dapat mangyari doon ay kapag naglabas ng results yung query at nag-click ng page number, ang lalabas
+	lang dapat ay yung mga records na na-satisfy yung condition ng search query.
+
+Chart
+	*dynamic dapat yung data, so ngayon static pa lang yung nailagay (I guess, kasi nung tiningnan ko yung 
+	code naka-fix, hindi galing sa db yung data)
+
+Request
+	Ahmm, yan lang talaga yung sa admin, lalabas lang yung mga pending requests and kapag na-approve na niya ay
+	hindi na lalabas yung record. Ang main functionality ng request ay nasa user side. :)
+
+USER SIDE
+
+	FACULTY AND STUDENT
+	*yung buttons ng most cited, most downloaded and most viewed hindi pa functional. Kapag sinubukan namang
+	pindutin yung most cited, error yung lumalabas.
+	Bali kapag pinindot yung most cited, dapat ang lalabas ay yung most cited thesis (bali ang query ay 
+	ika-count niya yung record ng tblthesis_citation tapos naka-limit sa 5 at naka-group via thesis_id, same
+	din sa most viewed(views naman ang ika-count) and downloaded(downloads naman ang ika-count)).
+	* hindi pa siya nakakapag-search(kasi full-text search yun.). Tinanggal ko muna siya kasi puro error yung 
+	lalabas.
+	* gumagana na yung pagination na A-Z. Tinanggal ko rin muna yung number pagination kasi panggulo rin (I mean,
+	pandagdag sa sakit ng ulo kasi hindi lumalabas yung dapat lumabas lang)
+	-Dapat kapag nag-search at nag-click ng page number at page letter ang lalabas lang ay yung na-satisfy yung
+	search query. (i.e, kapag nag-search si user tapos nag-click siya ng page letter na A, ang lalabas lang dapat
+	na record ay yung thesis title na nagsisimula sa Letter A. So, yung page number niya ay dedepende sa
+	kung ilang records yung lumabas na nagsisimula sa letter A.)
+	
+
+	*Since hindi siya nakakapag-search, sa pagination pa lang siya kumukuha ng record. Nakakapag-view na siya ng thesis record
+	nakakapag-cite and download na rin.
+	(NOTE: Kung may tiningnan kayong data na puro symbols ang abstract, ibig sabihin nun dati siyang blob na 
+	datatype. Pero meron nang record na text talaga yung lumalabas. Updated Thesis CMS ata yung record na yun. XD
+	Kapag naman nag-error yung download, ibig sabihin nun wala siyang kasamang file nung na-insert siya sa DB).
+
+	*FULL-TEXT SEARCH ang kulang dito (yung isa sa pinakamahalaga)
+
+	*REQUEST(For faculty and visitor only)
+	-Kapag wala pa siyang ginagawang request, kailangan niya munang mag-request. May pipindutin siyang button doon
+	at kapag nakapag-request na siya ay may lalabas na "You have already sent a request. Please wait for the admin's
+	approval." (something like that yung lalabas). Kapag na-approve na ni admin yung request ni user, 
+	itse-check na ni system kung sa kanyang request yung na-approve. Kapag sa kanya, ire-redirect siya ng request
+	page sa isang page na kailangan niyang i-enter yung upload code. Kapag tama yung upload code na in-input niya,
+	ire-redirect naman siya sa designated upload page ng thesis. Sa progress, hanggang doon pa lang sa upload code
+	yung nailagay ko sa system(kagaya ng sinabi ko nung una, may worship service pa akong aatend-an kaya kailangan
+	ko munang matulog. XD). Ikakabit ko siya after kong mag-attend ng worship service. :)
+
+	LAST NOTE: Kung mapapansin niyo, puro kaek-ekan yung records. The reason behind that is tinatamad akong mag-input ng
+	talagang totoong data kapag puro error yung system. Pero unti-unti kaming maglalagay. XD
+	Kapag may nakita pa kayong ibang errors, paki-message nalang us sa Messenger. Thanks :)
+
+
+	Kuya Dwin at Pelp, salamat mga tulong at magiging tulong niyo sa group namin. Tatanawin ko itong utang na loob.
+	Napakabait niyong tao kasi willing kayong tumulong sa amin without hesitation. We're so blessed na naging
+	kaklase namin kayo. No doubt na magiging successful kayo one day. You're one of the brightest and kindest
+	persons na nakilala ko. Again, maraming salamat. :)
+	

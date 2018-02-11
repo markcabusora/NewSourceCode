@@ -199,17 +199,23 @@
               </tr>
               <tr>
               	<?php
+                if($requestRes->num_rows >0) {
               		while($rowRequest = mysqli_fetch_assoc($requestRes)){
               	?>
                 <td><?php echo $rowRequest['REQUEST_ID']?></td>
                 <td><?php echo $rowRequest['USER_ID']?></td>
                 <td><?php echo $rowRequest['DATE_REQUESTED']?></td>
                 <td>
-                  <a href="admin_requests.php?id=<?php echo $rowRequest['REQUEST_ID']?>" class="btn btn-sm btn-success"><i class="fa fa-check"></i></a>
-                  <a href="javascript:delete_id(<?php echo $rowRequest['REQUEST_ID']; ?>)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                  <a href="admin_requests.php?id=<?php echo $rowRequest['REQUEST_ID']?>" class="btn btn-sm btn-success" data-toggle="tooltip" title="Approve Request"><i class="fa fa-check"></i></a>
+                  <a href="javascript:delete_id(<?php echo $rowRequest['REQUEST_ID']; ?>)" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Deny Request"><i class="fa fa-trash"></i></a>
                </td>
                <?php
-               		}
+               		} 
+                }else {
+               ?>
+                <td colspan="4">No records found.</td>
+               <?php
+                  }
                ?>
               </tr>
               </table>

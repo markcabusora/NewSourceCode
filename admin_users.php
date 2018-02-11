@@ -119,7 +119,7 @@
     $queryUsersResult = mysqli_query($conn, $queryUsers);
     $totalRecords = mysqli_num_rows($queryUsersResult);
     $totalPages = ceil($totalRecords / 30);
-    $queryUsers = "SELECT * FROM tblUsers WHERE status LIKE('active') AND ORDER BY last_name LIMIT $start, 20";
+    $queryUsers = "SELECT * FROM tblUsers WHERE status LIKE('active') ORDER BY last_name LIMIT $start, 20";
     $queryUsersResult = mysqli_query($conn, $queryUsers);
   }
   elseif(!empty($_GET['deactivate_user_id']))

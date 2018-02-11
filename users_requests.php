@@ -1,32 +1,30 @@
-
 <?php
   require('dbconnect.php');
   session_start();
 
   $userID = $_SESSION['user_id'];
 
-  if(isset($_GET['id'])){
-  	$approvedID = $_GET['id'];
+  $queryCheckIfApproved = "SELECT * FROM tblREquest WHERE USER_ID = '$userID' AND UPLOAD_CODE !=''";
+  $checkIfApprovedRes = $conn->query($queryCheckIfApproved);
 
-  	$uploadCode = AutoGenerateRequestID();
-
-  	$querySendCode = "UPDATE tblRequest SET UPLOAD_CODE = '$uploadCode' WHERE REQUEST_ID = '$approvedID'";
-  	$sendCodeRes = mysqli_query($conn, $querySendCode);
-  	header('location: admin_requests.php');
-  }
-  elseif(isset($_GET['delete_request'])){
-  	$deleteID = $_GET['delete_request'];
-
-  	$queryDeleteRequest = "DELETE FROM tblRequest WHERE REQUEST_ID = '$deleteID'";
-  	$deleteRequestRes = mysqli_query($conn, $queryDeleteRequest);
-
-  	header('location: admin_requests.php');
-  }
-  else {
-  	$queryRequest = "SELECT * FROM tblRequest WHERE UPLOAD_CODE = ''";
- 	$requestRes = mysqli_query($conn, $queryRequest);
+  if($checkIfApprovedRes->num_rows >0) {
+    $_SESSION['user_id'] = $userID;
+    $rowApproved = $checkIfApprovedRes->fetch_assoc();
+    $uploadCode = $rowApproved['UPLOAD_CODE'];
+    $_SESSION['upload_code'] = $uploadCode;
+    
+    header('location: users_approved_requests.php');
   }
 
+  if(isset($_POST['btnRequest'])) {
+    $requestID = AutoGenerateRequestID();
+
+    $queryRequest = "INSERT INTO tblRequest (REQUEST_ID, USER_ID, DATE_REQUESTED)
+                     VALUES('$requestID', '$userID', now())";
+    $requestRes = $conn->query($queryRequest);
+
+    header('location: users_requests.php');
+  }
 
   $queryUser = "SELECT * FROM tblUsers WHERE user_id = '$userID'";
 
@@ -192,13 +190,32 @@
         <div class="col-md-2">
   
         </div>
+        <?php 
+          $queryCheckIfRequested = "SELECT * FROM tblRequest WHERE USER_ID = '$userID'";
+          $checkIfRequestedRes = $conn->query($queryCheckIfRequested);
 
+          $rowIfRequested = $checkIfRequestedRes->fetch_assoc();
+
+          if($checkIfRequestedRes->num_rows > 0) {
+        ?>
         <div class="col-md-8">
-          <h3><center><br>If you want to request for upload code, click the button below:<br><br>
-          <button type="button" class="btn btn-flat btn-primary btn-lg">Request</button>
+          <h3><center><br>
+            You have submitted a request. Please wait for the administrator's approval.
           </center></h3>
         </div>
-
+        <?php
+          }else{
+        ?>
+        <div class="col-md-8">
+        <form action="users_requests.php" method="post">
+          <h3><center><br>If you want to request for upload code, click the button below:<br><br>
+          <input type="submit" class="btn btn-flat btn-primary btn-lg" value="Request" name="btnRequest">
+          </center></h3>
+        </form>
+        </div>
+        <?php
+          }
+        ?>
         <div class="col-md-2">
           
         </div>
