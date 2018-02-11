@@ -192,16 +192,12 @@
               <div class="form-group">
                 <form action="student_view_category.php" method="post">
                 <div class="input-group margin">
-                <div class="input-group-btn">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Search for
-                    <span class="fa fa-caret-down" style="width: 30%"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
+                <div class="input-group-btn" style="width: 20%">
+                  <select class="form-control select2" name="category">
+                      <option selected="selected">Thesis Title</option>
+                      <option>Thesis Code</option>
+                      <option>Year Accomplished</option>
+                    </select>
                 </div>
                 <!-- /btn-group -->
                 <input type="text" class="form-control" placeholder="Search" style="width: 70%" autofocus="">

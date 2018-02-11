@@ -327,7 +327,7 @@
                 }
              ?>
 
-              <a href="#" class="pull-right">See More</a>
+              <a href="student_view_category.php" class="pull-right">See More</a>
             </div>
             <!-- /.box-body -->
           </div>
