@@ -380,7 +380,7 @@ function alphaOnly(e) {
                 </div>
                 <div class="modal-body">
                 <div class="box-body">
-                  <form action="admin_thesis.php" method="post">
+                  <form action="admin_thesis.php" method="post" enctype="multipart/form-data">
                     <table class="table table-bordered">
                       <tr>
                             <td>Thesis Code</td>

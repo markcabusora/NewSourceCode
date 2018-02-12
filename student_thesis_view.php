@@ -372,7 +372,7 @@
             <div class="box-header">
               <CENTER><font size="+2">ABSTRACT</font></CENTER>
               <?php 
-                echo string nl2br($rowThesisAbstract['abstract']);
+                echo nl2br($rowThesisAbstract['abstract']);
               ?>
               <!-- The Modal -->
               <div id="myModal" class="modal">
@@ -388,8 +388,10 @@
         <div class="col-sm-8">
           <div class="box-body">
              <ul class="list-inline">
-                <li><h2><?php if(mysqli_num_rows($thesisViewQueryResult) > 0)
-                echo $rowThesis['thesis_title']?></h2></li>
+                <li><h2><?php
+                if(mysqli_num_rows($thesisViewQueryResult) > 0)
+                 echo $rowThesis['thesis_title']?></h2></li>
+
               </ul>
 
             <ul class="list-inline">
@@ -430,7 +432,8 @@
                           {
                             echo $rowEvaluators['first_name']." ".$rowEvaluators['middle_initial'].". ".$rowEvaluators['last_name'].", ";
                           }
-                        }  
+                        }
+                      
                     ?>
                   </p>
                 </li>
@@ -441,7 +444,7 @@
               <div class="col-sm-8">
                 <div class="row">
                   <div class="col-sm-6">
-                    <a href="users_thesis_view.php?cite_thesis_id=<?php echo $viewThesisID; ?>" class="btn btn-block btn-primary" data-toggle="tooltip" title="Cite Thesis" <?php if(!empty(isset($_GET['cite_thesis_id']))) echo "disabled='disabled'"; ?>>
+                    <a href="student_thesis_view.php?cite_thesis_id=<?php echo $viewThesisID; ?>" class="btn btn-block btn-primary" data-toggle="tooltip" title="Cite Thesis" <?php if(!empty(isset($_GET['cite_thesis_id']))) echo "disabled='disabled'"; ?>>
                       <i class="fa fa-quote-left">
                       </i>
                     </a></div>
@@ -519,7 +522,7 @@
             <div class="box-header"><h4>Suggested Theses</h4></div>
               <div class="box-body">
                 <?php 
-                  $querySuggest = "SELECT COUNT(thesis_id) from tblThesis_views WHERE user_id != '$userID' GROUP BY thesis_id";
+                  $querySuggest = "SELECT thesis_id, COUNT(thesis_id) from tblThesis_views WHERE user_id != '$userID' GROUP BY thesis_id LIMIT 5";
                   $suggestRes = mysqli_query($conn, $querySuggest);
 
                   while($rowSuggest = mysqli_fetch_assoc($suggestRes)){
@@ -529,7 +532,7 @@
 
                     while($rowThesis = mysqli_fetch_assoc($retThesisRes)){
                 ?>
-                     <div class="col-sm-3"><br><br><br><br><br><br><br><a href="student_thesis_view.php?id=<?php echo $thesisID?>"><?php echo $rowThesis['thesis_title'] ?></a></div>
+                     <div class="col-sm-3"><br><br><br><br><br><br><br><a href="student_thesis_view.php?thesis_id=<?php echo $thesisID?>"><?php echo $rowThesis['thesis_title'] ?></a></div>
                   <?php
                     }
                   }

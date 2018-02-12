@@ -173,7 +173,7 @@
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            
           </div>
         </div>
         <!-- ./col -->
@@ -195,7 +195,7 @@
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            
           </div>
         </div>
         <!-- ./col -->
@@ -210,7 +210,7 @@
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          
           </div>
         </div>
         <!-- ./col -->
@@ -225,7 +225,7 @@
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            
           </div>
         </div>
         <!-- ./col -->
@@ -234,7 +234,7 @@
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
-        <section class="col-lg-7 connectedSortable">
+        <section class="col-lg-6 connectedSortable">
           <!-- Custom tabs (Charts with tabs)-->
           <!-- <div class="nav-tabs-custom"> -->
             <!-- Tabs within a box -->
@@ -256,21 +256,28 @@
             <script type="text/javascript" src="chart/Chart.js"></script>
             <script type="text/javascript" src="chart/Chart.min.js"></script>
             <script type="text/javascript" src="chart/linegraph.js"></script> -->
+            <center><h3>Most Cited Thesis</h3></center>
             <div class="chart-container">
               <!--<canvas id="mycanvas"></canvas> -->
-              <div class="chart" id="line-chart" style="height:300px;"></div>
+              <div class="chart" id="line-chart" style="height:300px; width:75%"></div>
 
             </div>
         </section>
         
-        <section class="col-lg-5 connectedSortable">
+        <section class="col-lg-6 connectedSortable">
+          <center><h3>Most Downloaded Thesis</h3></center>
+          <div class="chart-container">
+              <!--<canvas id="mycanvas"></canvas> -->
+              <div class="chart" id="downloads-chart" style="height:300px; width:75%"></div>
+
+            </div>
 
           <!-- Map box -->
           
           <!-- /.box -->
 
           <!-- solid sales graph -->
-          <div class="box box-solid bg-teal-gradient">
+          <!--<div class="box box-solid bg-teal-gradient">
             <div class="box-header">
               <i class="fa fa-th"></i>
 
@@ -287,7 +294,7 @@
               <div class="chart" id="line-chart" style="height: 250px;"></div>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer no-border">
+           <!-- <div class="box-footer no-border">
               <div class="row">
                 <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
                   <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
@@ -296,103 +303,30 @@
                   <div class="knob-label">Faculty</div>
                 </div>
                 <!-- ./col -->
-                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+               <!-- <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
                   <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
                          data-fgColor="#39CCCC">
 
                   <div class="knob-label">Student</div>
                 </div>
                 <!-- ./col -->
-                <div class="col-xs-4 text-center">
+             <!--   <div class="col-xs-4 text-center">
                   <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
                          data-fgColor="#39CCCC">
 
                   <div class="knob-label">Visitor</div>
                 </div>
                 <!-- ./col -->
-              </div>
+           <!--   </div>
               <!-- /.row -->
-            </div>
+          <!--  </div>
             <!-- /.box-footer -->
-          </div>
+        
+        <!-- </div> -->
           <!-- /.box -->
 
           <!-- Calendar -->
-          <div class="box box-solid bg-green-gradient">
-            <div class="box-header">
-              <i class="fa fa-calendar"></i>
-
-              <h3 class="box-title">Calendar</h3>
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                <!-- button with a dropdown -->
-                <div class="btn-group">
-                  <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-bars"></i></button>
-                  <ul class="dropdown-menu pull-right" role="menu">
-                    <li><a href="#">Add new event</a></li>
-                    <li><a href="#">Clear events</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">View calendar</a></li>
-                  </ul>
-                </div>
-                <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
-                </button>
-              </div>
-              <!-- /. tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <!--The calendar -->
-              <div id="calendar" style="width: 100%"></div>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer text-black">
-              <div class="row">
-                <div class="col-sm-6">
-                  <!-- Progress bars -->
-                  <div class="clearfix">
-                    <span class="pull-left">Task #1</span>
-                    <small class="pull-right">90%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
-                  </div>
-
-                  <div class="clearfix">
-                    <span class="pull-left">Task #2</span>
-                    <small class="pull-right">70%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
-                  </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-6">
-                  <div class="clearfix">
-                    <span class="pull-left">Task #3</span>
-                    <small class="pull-right">60%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
-                  </div>
-
-                  <div class="clearfix">
-                    <span class="pull-left">Task #4</span>
-                    <small class="pull-right">40%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
-                  </div>
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-          </div>
-          <!-- /.box -->
+          
 
         </section>
         <!-- right col -->
@@ -401,7 +335,14 @@
 
     </section>
     <!-- /.content -->
+    <section class="col-lg-12 connectedSortable">
+      <center><h3>Most Viewed Thesis</h3></center>
+      <div class="chart" id="views-chart" style="height:300px;""></div>
+      <br>
+  <br>
+    </section>
   </div>
+
 
  
 </div>
@@ -463,6 +404,41 @@ $.ajax({
         });
     }
 });
+
+$.ajax({
+    type: 'POST',
+    url: "mostdownloadedthesisdata.php",
+    dataType: "json",
+    async: false,
+    contentType: "application/json; charset=utf-8",
+    success: function (json) {
+        Morris.Bar({
+            element: 'downloads-chart',
+            data: json,
+            xkey: 'thesis_id',
+            ykeys: ['downloads'],
+            labels: ['downloads']
+        });
+    }
+});
+
+$.ajax({
+    type: 'POST',
+    url: "mostviewedthesisdata.php",
+    dataType: "json",
+    async: false,
+    contentType: "application/json; charset=utf-8",
+    success: function (json) {
+        Morris.Bar({
+            element: 'views-chart',
+            data: json,
+            xkey: 'thesis_id',
+            ykeys: ['Views'],
+            labels: ['Views']
+        });
+    }
+});
+mostviewedthesisdata.php
 </script>
 
 </body>

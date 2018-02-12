@@ -3,7 +3,7 @@
 	
 	$conn = new MySQLI("localhost", "root", "", "dbthesys");
 
-	$query = sprintf("SELECT thesis_id, COUNT(id) as Citations FROM tblThesis_citation GROUP BY thesis_id ORDER BY Citations DESC LIMIT 5");
+	$query = sprintf("SELECT thesis_id, COUNT(id) as Views FROM tblThesis_Views GROUP BY thesis_id ORDER BY Views DESC LIMIT 5");
 
 	$result = $conn->query($query);
 

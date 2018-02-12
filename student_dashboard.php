@@ -89,7 +89,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="users_dashboard.php" class="logo">
+    <a href="student_dashboard.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>T</b>SYS</span>
       <!-- logo for regular state and mobile devices -->
@@ -162,10 +162,6 @@
 
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-
-       <!--<li class="active"><a href="student_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>-->
-       <!--<li><a href="users_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>-->
-
        <li class="active"><a href="student_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
         </li>
@@ -222,7 +218,7 @@
               </div>
 
               <div class="btn-group" style="margin-top: 1%">
-                <div class="btn-group"><a href="users_dashboard.php?cat=mostcited"><button type="button" class="btn btn-primary">Most Cited</button></a></div>
+                <div class="btn-group"><a href="student_dashboard.php?cat=mostcited"><button type="button" class="btn btn-primary">Most Cited</button></a></div>
                 <div class="btn-group"><button type="button" class="btn btn-primary" style="margin-left: 4%">Most Viewed</button></div>
                 <div class="btn-group"><button type="button" class="btn btn-primary" style="margin-left: 6%">Most Downloaded</button></div>
               </div>
@@ -247,7 +243,7 @@
                   $queryAuthorsResult = mysqli_query($conn, $queryAuthors);
             ?>
             <div class="box-body">
-                  <a href="users_thesis_view.php?thesis_id=<?php echo $rowThesis['thesis_id']; ?>"><h4><?php echo $rowThesis['thesis_title'] ?></h4></a>
+                  <a href="student_thesis_view.php?thesis_id=<?php echo $rowThesis['thesis_id']; ?>"><h4><?php echo $rowThesis['thesis_title'] ?></h4></a>
                   <i class="fa fa-users">
             <?php  
                   while($rowAuthors = mysqli_fetch_array($queryAuthorsResult))
@@ -316,7 +312,7 @@
             <!-- /.box-header -->
             <div class="box-body">
              <?php 
-                $queryCategories = "SELECT * FROM tblCategory";
+                $queryCategories = "SELECT * FROM tblCategory ORDER BY category_name";
                 $categoriesResult = mysqli_query($conn, $queryCategories);
 
                 while($rowCategory = mysqli_fetch_array($categoriesResult))
@@ -327,7 +323,7 @@
                 }
              ?>
 
-              <a href="student_view_category.php" class="pull-right">See More</a>
+              <a href="student_view_category.php?selectedCategory=1" class="pull-right">See More</a>
             </div>
             <!-- /.box-body -->
           </div>
