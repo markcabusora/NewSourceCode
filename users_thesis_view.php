@@ -539,7 +539,10 @@
 
                     while($rowThesis = mysqli_fetch_assoc($retThesisRes)){
                 ?>
-                     <div class="col-sm-3"><br><br><br><br><br><br><br><a href="users_thesis_view.php?thesis_id=<?php echo $thesisID;?>"><?php echo $rowThesis['thesis_title'] ?></a></div>
+                     <div class="col-sm-3">
+                      <a href="users_thesis_view.php?thesis_id=<?php echo $thesisID;?>">
+                        <?php echo $rowThesis['thesis_title'] ?></a>
+                      </div>
                   <?php
                     }
                   }
@@ -556,7 +559,7 @@
 
                     while($rowThesis = mysqli_fetch_assoc($retThesisRes)){
                 ?>
-                     <div class="col-sm-3"><br><br><br><br><br><br><br><a href="users_thesis_view.php?thesis_id=<?php echo $thesisID;?>"><?php echo $rowThesis['thesis_title'] ?></a></div>
+                     
                   <?php
                     }
                   }

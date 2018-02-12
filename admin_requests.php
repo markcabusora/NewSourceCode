@@ -188,45 +188,43 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
-
+    <div class="row">
       <div class="box-body">
-            <table class="table table-bordered" style="width:100%;">
-              <tr>
-                <th>Request ID</th>
-                <th>User ID</th>
-                <th>Date Requested</th>
-                <th>Actions</th>
-              </tr>
-              <tr>
-              	<?php
+        <div class="col-md-12">
+          <table class="table table-bordered" style="width:100%;">
+            <tr>
+              <th>Request ID</th>
+              <th>User ID</th>
+              <th>Date Requested</th>
+              <th>Actions</th>
+            </tr>
+                
+            <tr>
+              <?php
                 if($requestRes->num_rows >0) {
-              		while($rowRequest = mysqli_fetch_assoc($requestRes)){
-              	?>
-                <td><?php echo $rowRequest['REQUEST_ID']?></td>
-                <td><?php echo $rowRequest['USER_ID']?></td>
-                <td><?php echo $rowRequest['DATE_REQUESTED']?></td>
-                <td>
-                  <a href="admin_requests.php?id=<?php echo $rowRequest['REQUEST_ID']?>" class="btn btn-sm btn-success" data-toggle="tooltip" title="Approve Request"><i class="fa fa-check"></i></a>
-                  <a href="javascript:delete_id(<?php echo $rowRequest['REQUEST_ID']; ?>)" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Deny Request"><i class="fa fa-trash"></i></a>
-               </td>
-               <?php
-               		} 
-                }else {
-               ?>
-                <td colspan="4">No records found.</td>
-               <?php
-                  }
-               ?>
-              </tr>
-              </table>
-                  </form>
-                </div>
-                </div>
-            </div>
+                	while($rowRequest = mysqli_fetch_assoc($requestRes)){
+                	?>
+             
+             <td><?php echo $rowRequest['REQUEST_ID']?></td>
+             <td><?php echo $rowRequest['USER_ID']?></td>
+             <td><?php echo $rowRequest['DATE_REQUESTED']?></td>
+             <td><a href="admin_requests.php?id=<?php echo $rowRequest['REQUEST_ID']?>" class="btn btn-sm btn-success" data-toggle="tooltip" title="Approve Request"><i class="fa fa-check"></i></a>
+                    <a href="javascript:delete_id(<?php echo $rowRequest['REQUEST_ID']; ?>)" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Deny Request"><i class="fa fa-trash"></i></a></td>
+                 <?php
+                 		} 
+                  }else {
+                 ?>
+            <td colspan="4">No records found.</td>
+                 <?php
+                    }
+                 ?>
+            </tr>
+          </table>
         </div>
       </div>
-
-    </section>
+    </div>
+  </div>
+</section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
