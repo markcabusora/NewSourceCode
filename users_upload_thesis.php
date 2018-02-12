@@ -14,6 +14,7 @@
   $rowLoggedUser = mysqli_fetch_array($queryResult);
 
   $_SESSION['user_id'] = $userID;
+  $_SESSION['upload_code'] = $uploadCode;
 
 
 if(isset($_POST['btnUpload'])){
@@ -21,7 +22,7 @@ if(isset($_POST['btnUpload'])){
       $thesisCode = $_POST['upload_txtCode'];
       $thesisTitle = $_POST['upload_txtTitle'];
       $thesisFileType = $_POST['upload_ddlType'];
-      $thesisCategory = $_POST['upload_ddlCategory'];
+      $thesisCategoryID = $_POST['upload_ddlCategory'];
       $year_accomplished = $_POST['upload_txtYear'];
 
       $queryYearDiff = "SELECT year(now()) - $year_accomplished as Difference";
@@ -29,9 +30,9 @@ if(isset($_POST['btnUpload'])){
 
       $rowDiff = $yearDiffRes-> fetch_assoc();
       if($rowDiff['Difference'] > 10) 
-      	$thesisStatus = 'ARCHIVED';
+        $thesisStatus = 'ARCHIVED';
       else
-      	$thesisStatus = 'ACTIVE';
+        $thesisStatus = 'ACTIVE';
 
       $thesisAbstract = $_POST['upload_txtAbstract'];
 
@@ -39,7 +40,7 @@ if(isset($_POST['btnUpload'])){
       $thesisFileName = $thesisFile['name'];
       $thesisFileTempName = $thesisFile['tmp_name'];
       $thesisFileSize = $thesisFile['size'];
-      $thesisFileError =$thesisFile['error'];
+      $thesisFileError = $thesisFile['error'];
 
 
       $thesisFileExt = explode('.', $thesisFileName);
@@ -53,17 +54,17 @@ if(isset($_POST['btnUpload'])){
             $thesisFileDestination = 'uploads/'.$newThesisFileName;
             move_uploaded_file($thesisFileTempName, $thesisFileDestination);
 
-            $queryUploadFile = "INSERT INTO tblThesis (thesis_id, thesis_title, year_accomplished, file, file_type, status) VALUES (upper('$thesisCode'),'$thesisTitle', $year_accomplished, '$thesisFileDestination', upper('$thesisFileType'), '$thesisStatus')";
+            $queryUploadFile = "INSERT INTO tblthesis (thesis_id, thesis_title, year_accomplished, file, file_type, status) VALUES (upper('$thesisCode'),'$thesisTitle', $year_accomplished, '$thesisFileDestination', upper('$thesisFileType'), '$thesisStatus')";
             $uploadFileResult = mysqli_query($conn,$queryUploadFile);
            
 
-      		$queryAddAbstract = "INSERT INTO tblThesis_Abstract (thesis_id, abstract) VALUES (upper('$thesisCode'), '$thesisAbstract')";
-      		$addAbstractRes = mysqli_query($conn, $queryAddAbstract);
+          $queryAddAbstract = "INSERT INTO tblthesis_Abstract (thesis_id, abstract) VALUES (upper('$thesisCode'), '$thesisAbstract')";
+          $addAbstractRes = mysqli_query($conn, $queryAddAbstract);
 
-      		$queryAddThesisCategory = "INSERT INTO tblThesis_category(category_id, thesis_id) VALUES ($thesisCategory, '$thesisCode')";
-      		$addThesisCategoryRes = mysqli_query($conn, $queryAddThesisCategory);
+          $queryAddThesisCategory = "INSERT INTO tblthesis_Category(category_id, thesis_id) VALUES ('$thesisCategoryID', '$thesisCode')";
+          $addThesisCategoryRes = mysqli_query($conn, $queryAddThesisCategory);
 
-      		 header('location: users_requests.php');
+           header('location: users_addAuthorEvaluator.php?thesis_id=$thesisCode');
           }else{
           ?>
           <script type="text/javascript">
@@ -203,8 +204,8 @@ if(isset($_POST['btnUpload'])){
       <ul class="sidebar-menu" data-widget="tree">
       
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="admin_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
-        <li><a href="admin_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>
+        <li><a href="users_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="users_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>
         
       </ul>
 
@@ -222,8 +223,8 @@ if(isset($_POST['btnUpload'])){
         <small><!-- requests of? --></small>
       </h1>
       <ol class="breadcrumb">
-        <li><i class="fa fa-dashboard"></i>Level</li>
-        <li class="active">Admin</li>
+        <li><a href="users_dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Requests</li>
       </ol>
     </section>
 
@@ -243,54 +244,54 @@ if(isset($_POST['btnUpload'])){
                    <td> <input type="text" name="upload_txtCode" class="form-control" required="" style="width: 50%" value="<?php echo $uploadCode?>" readonly="readonly"></td>
                  </tr>
                  <tr>
-                 	<td></td>
+                  <td></td>
                    <td>Thesis Title:</td>
                    <td><input type="text" name="upload_txtTitle" class="form-control" required="" style="width: 50%"></td>
                  </tr>
 
                  <tr>
-                 	<td></td>
+                  <td></td>
                    <td>Thesis File</td>
                    <td><input type="file" name="upload_flThesisFile" required=""></td>
                  </tr>
                  <tr>
-                 	<td></td>
-                 	<td>File Type:</td>
-                 	<td>
-                 		<select name="upload_ddlType" required="" class="form-control select2" style="width: 50%;">
-                 			<option>Select File Type</option>
-                 			<option>Original Copy</option>
-                 			<option>Scanned</option>
-                 		</select>
-                 	</td>
+                  <td></td>
+                  <td>File Type:</td>
+                  <td>
+                    <select name="upload_ddlType" required="" class="form-control select2" style="width: 50%;">
+                      <option>Select File Type</option>
+                      <option>Original Copy</option>
+                      <option>Scanned</option>
+                    </select>
+                  </td>
                  </tr>
                  <tr>
-                 	<td></td>
-                 	<td>Category:</td>
-                 	<td>
-                 		<select name="upload_ddlCategory" class="form-control select2" style="width: 50%;" required="">
-                 			<option>Select a Category</option>
-                 		<?php
-                 			$queryCategory = "SELECT * FROM tblCategory ORDER BY category_name";
-                 			$categoryRes = $conn->query($queryCategory);
+                  <td></td>
+                  <td>Category:</td>
+                  <td>
+                    <select name="upload_ddlCategory" class="form-control select2" style="width: 50%;" required="">
+                      <option>Select a Category</option>
+                    <?php
+                      $queryCategory = "SELECT * FROM tblCategory ORDER BY category_name";
+                      $categoryRes = $conn->query($queryCategory);
 
-                 			while($rowCategory = $categoryRes->fetch_assoc()) {
-                 		?>
-                 			
-                 			<option value="<?php echo $rowCategory['id'] ?>"><?php echo $rowCategory['category_name']?></option>
-                 		<?php
-                 			}
-                 		?>
-                 		</select>
-                 	</td>
+                      while($rowCategory = $categoryRes->fetch_assoc()) {
+                    ?>
+                      
+                      <option value='<?php echo $rowCategory['id']?>'><?php echo $rowCategory['category_name']?></option>
+                    <?php
+                      }
+                    ?>
+                    </select>
+                  </td>
                  </tr>
                  <tr>
-                 	<td></td>
+                  <td></td>
                   <td>Year Accomplished</td>
                   <td><input type="text" name="upload_txtYear" class="form-control" required="" style="width: 50%"></td>
                  </tr>
                  <tr>
-                 	<td></td>
+                  <td></td>
                   <td>Thesis Abstract</td>
                    <td>
                      <textarea name="upload_txtAbstract" style="resize: none; height: 200px; width: 50%; font-size: 16px; vertical-align: left;"></textarea>
@@ -301,8 +302,8 @@ if(isset($_POST['btnUpload'])){
                    <td></td>
                    <td></td>
                    <td>
-                   	<center>
-                    	<input type="submit" name="btnUpload" class="btn btn-success" value="Upload Thesis" style="font-size: 15px;">
+                    <center>
+                      <input type="submit" name="btnUpload" class="btn btn-success" value="Upload Thesis" style="font-size: 15px;">
                     </center>
                    </td>
                  </tr>

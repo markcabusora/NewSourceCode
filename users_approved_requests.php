@@ -157,8 +157,8 @@
         <small><!-- requests of? --></small>
       </h1>
       <ol class="breadcrumb">
-        <li><i class="fa fa-dashboard"></i>Level</li>
-        <li class="active">Admin</li>
+        <li><a href="users_dashboard.php"><i class="fa fa-dashboard"></i> Home </a></li>
+        <li class="active">Requests</li>
       </ol>
     </section>
 
@@ -173,7 +173,7 @@
           <h3><center>Your upload code is:<br><br>
           <form action="users_approved_requests.php" method="post">
             <input type="text" name="txtUploadCode" class="form-control" readonly="readonly" style="width: 30%; text-align: center; font-size: 20px;" value="<?php echo $uploadCode;?>"><br><br>
-            <p><h3>Enter upload code here: </h3><br><input type="text" name="txtUploadCodeInput" class="form-control" style="width: 30%; text-align: center; font-size: 20px;"></p><br>
+            <p><h3>Enter upload code here: </h3><br><input type="text" name="txtUploadCodeInput" class="form-control" style="width: 30%; text-align: center; font-size: 20px;" autofocus=""></p><br>
           <input type="submit" class="btn btn-flat btn-primary btn-lg" value="Enter Code" name="btnEnterCode">
           </center></h3>
           </form>

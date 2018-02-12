@@ -154,12 +154,19 @@
         $queryThesesResult = mysqli_query($conn, $queryTheses);
       }
   }
-  }elseif(isset($_GET['thesis_id'])){
-  	 $thesisID = $_GET['thesis_id'];
+  }elseif(isset($_POST['btnAddCategory'])){
+    $categoryName = $_POST['add_txtCategory'];
 
-	   $archiveThesisQuery = "UPDATE tblThesis SET status = 'ARCHIVED' WHERE thesis_id = '$thesisID'";
-	   $archiveThesisQueryResult = mysqli_query($conn, $archiveThesisQuery);
-	   header('location: admin_thesis.php');
+    $queryAddCategory = "INSERT INTO tblCategory(category_name) VALUES('$categoryName')";
+    $addCategoryRes = $conn->query($queryAddCategory);
+
+    header('location: admin_thesis.php');
+  }elseif(isset($_GET['thesis_id'])){
+     $thesisID = $_GET['thesis_id'];
+
+     $archiveThesisQuery = "UPDATE tblThesis SET status = 'ARCHIVED' WHERE thesis_id = '$thesisID'";
+     $archiveThesisQueryResult = mysqli_query($conn, $archiveThesisQuery);
+     header('location: admin_thesis.php');
   }else{
       
     if(!empty($_GET['page']))
@@ -463,18 +470,18 @@ function alphaOnly(e) {
 
               <div class="modal-body">
                 <div class="box-body">
-                  <form action="admin_users_admin.php" method="post">
+                  <form action="admin_thesis.php" method="post">
                     <table class="table table-bordered">
                       <tr>
                             <td>Category Name</td>
                             <td> 
-                              <input type="text" name="" class="form-control" onkeypress="return alphaOnly(event);" required="">
+                              <input type="text" name="add_txtCategory" class="form-control" onkeypress="return alphaOnly(event);" required="">
                             </td>
                       </tr>
                         
                         <tr class="modal-footer">
                             <td>
-                               <input type="submit" name="add_userAdmin" class="btn btn-default btn-flat" value="Add Category">
+                               <input type="submit" name="btnAddCategory" class="btn btn-default btn-flat" value="Add Category">
                             </td>
                         </tr>
                     </table>
@@ -574,9 +581,9 @@ function alphaOnly(e) {
                 <td><?php echo $rowTheses['thesis_title']; ?></td>
                 <td><?php echo $rowTheses['year_accomplished']; ?></td>
                 <td>
-                  	<a href="admin_edit_thesis.php?thesis_id=<?php echo $rowTheses['thesis_id']?>" class="btn btn-sm btn-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
-                  	<a href="admin_thesis.php?thesis_id=<?php echo $rowTheses['thesis_id']?>" onClick="return confirm('Sure To Archive This Record?');"class="btn btn-sm btn-success" data-toggle="tooltip" title="Deactivate Thesis"><i class="fa fa-archive"></i></a>
-                  	<a href="admin_view_thesis.php?thesis_id=<?php echo $rowTheses['thesis_id']?>" class="btn btn-sm btn-info" data-toggle="tooltip" title="Preview"><i class="fa fa-eye"></i></a>
+                    <a href="admin_edit_thesis.php?thesis_id=<?php echo $rowTheses['thesis_id']?>" class="btn btn-sm btn-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
+                    <a href="admin_thesis.php?thesis_id=<?php echo $rowTheses['thesis_id']?>" onClick="return confirm('Sure To Archive This Record?');"class="btn btn-sm btn-success" data-toggle="tooltip" title="Deactivate Thesis"><i class="fa fa-archive"></i></a>
+                    <a href="admin_view_thesis.php?thesis_id=<?php echo $rowTheses['thesis_id']?>" class="btn btn-sm btn-info" data-toggle="tooltip" title="Preview"><i class="fa fa-eye"></i></a>
                 </td>
                <?php
                 }
