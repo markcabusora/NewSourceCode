@@ -265,8 +265,8 @@
       <ul class="sidebar-menu" data-widget="tree">
       
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="admin_dashboard.php"><i class="fa fa-th"></i> <span>Dashboard</span></a></li>
-        <li><a href="admin_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>
+        <li><a href="users_dashboard.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="users_requests.php"><i class="fa fa-th"></i> <span>Requests</span></a></li>
         
       </ul>
 
@@ -284,8 +284,8 @@
         <small><!-- requests of? --></small>
       </h1>
       <ol class="breadcrumb">
-        <li><i class="fa fa-dashboard"></i>Level</li>
-        <li class="active">Admin</li>
+        <li><a href="admin_requests.php"><i class="fa fa-dashboard"></i> Home </a></li>
+        <li class="active">Requests</li>
       </ol>
     </section>
 

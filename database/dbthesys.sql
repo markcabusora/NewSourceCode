@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2018 at 03:58 PM
+-- Generation Time: Feb 12, 2018 at 08:23 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -41,7 +41,8 @@ CREATE TABLE `tblcategory` (
 INSERT INTO `tblcategory` (`id`, `category_name`, `category_desc`) VALUES
 (1, 'Transaction Processing System', ''),
 (3, 'Virtual Reality', ''),
-(4, 'Network', '');
+(4, 'Network', ''),
+(5, 'Research Management', '');
 
 -- --------------------------------------------------------
 
@@ -96,6 +97,8 @@ CREATE TABLE `tblevaluators` (
 
 INSERT INTO `tblevaluators` (`evaluator_id`, `last_name`, `first_name`, `middle_initial`) VALUES
 ('E72D9985', 'Dorin', 'Rommel', 'L'),
+('E8BB0D50', 'Alar', 'Hernan', 'M'),
+('EA8A2F79', 'Cortez', 'Rex', 'T'),
 ('EC52ADCB', 'Traballo', 'Roel', 'C'),
 ('EDF22AC6', 'Pahayahay', 'Alecs', 'B');
 
@@ -131,7 +134,11 @@ INSERT INTO `tblpasswords` (`id`, `user_id`, `password`) VALUES
 (15, 'F1234567', '3d801aa532c1cec3ee82d87a99fdf63f'),
 (22, 'V125A7ED', '	\r\n3d801aa532c1cec3ee82d87a99fdf63f\r\n\r\n'),
 (23, 'F7CFA03D', 'e10adc3949ba59abbe56e057f20f883e'),
-(24, 'K9012345', '3847820138564525205299f1f444c5ec');
+(24, 'K9012345', '3847820138564525205299f1f444c5ec'),
+(25, 'FF1D2B1E', '5f4dcc3b5aa765d61d8327deb882cf99'),
+(26, 'V40EFA6D', '127870930d65c57ee65fcc47f2170d38'),
+(27, 'FF64B96F', 'd561c7c03c1f2831904823a95835ff5f'),
+(28, 'FEE8F83E', '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
@@ -156,7 +163,10 @@ INSERT INTO `tblproponents` (`id`, `thesis_id`, `last_name`, `first_name`, `midd
 (11, 'SMP123', 'Castillo', 'Ernalyn', 'S'),
 (12, 'SMP123', 'Cabusora', 'Aira', 'R'),
 (13, 'CCS456', 'Verde', 'Kim', 'T'),
-(14, 'CCS', 'Pilaps', 'Ringgo', 'Gor');
+(14, 'CCS', 'Pilaps', 'Ringgo', 'Gor'),
+(20, '', 'Olimberio', 'Daniel', 'C'),
+(21, '', 'Gulo', 'Rhea Marie', 'N'),
+(22, '', 'Paala', 'Alvin', 'X');
 
 -- --------------------------------------------------------
 
@@ -176,7 +186,9 @@ CREATE TABLE `tblrequest` (
 --
 
 INSERT INTO `tblrequest` (`REQUEST_ID`, `USER_ID`, `DATE_REQUESTED`, `UPLOAD_CODE`) VALUES
-('R1234567', 'V125A7ED', '2018-01-15', 'RBE6E3B8');
+('R1234567', 'V125A7ED', '2018-01-15', 'RBE6E3B8'),
+('R4E2366E', 'FF1D2B1E', '2018-02-12', 'R2123A3C'),
+('R880F506', 'V40EFA6D', '2018-02-12', 'RBC27AC2');
 
 -- --------------------------------------------------------
 
@@ -210,6 +222,7 @@ CREATE TABLE `tblthesis` (
 --
 
 INSERT INTO `tblthesis` (`thesis_id`, `thesis_title`, `year_accomplished`, `file`, `file_type`, `status`, `request_id`) VALUES
+('', 'Ordering', 2017, 'uploads/file.docx', 'ORIGINAL', 'ARCHIVED', NULL),
 ('CC2', 'Lalang', 2011, '', '', 'ACTIVE', NULL),
 ('CCS', 'Updated Thesis CMS', 2018, '', '', 'ACTIVE', NULL),
 ('CCS098', 'Try Updated', 2013, '', '', 'ACTIVE', NULL),
@@ -222,6 +235,10 @@ INSERT INTO `tblthesis` (`thesis_id`, `thesis_title`, `year_accomplished`, `file
 ('CCS456', 'Sample Upload', 2018, 'uploads/CCS456file.pdf', 'Original', 'ACTIVE', NULL),
 ('CCS789', 'Another Sample', 2018, 'uploads/CCS789file.pdf', 'Original', 'ACTIVE', NULL),
 ('CCS987', 'Sample Auto', 2006, 'uploads/CCS987file.pdf', 'Original', 'ARCHIVED', NULL),
+('R2123A3C', 'Thesys', 2018, 'uploads/R2123A3Cfile.docx', 'ORIGINAL', 'ACTIVE', NULL),
+('R6AE7AAA', 'Ordering', 2017, 'uploads/R6AE7AAAfile.docx', 'ORIGINAL', 'ACTIVE', NULL),
+('RA10AA78', 'Geometroid', 2017, 'uploads/RA10AA78file.docx', 'ORIGINAL', 'ACTIVE', NULL),
+('RDE9AB90', 'Thesys System', 2018, 'uploads/RDE9AB90file.docx', 'ORIGINAL', 'ACTIVE', NULL),
 ('SMP123', 'Sample', 2006, 'uploadedPictures/SMP123file.pdf', 'Scanned', 'ARCHIVED', NULL);
 
 -- --------------------------------------------------------
@@ -255,7 +272,13 @@ INSERT INTO `tblthesis_abstract` (`id`, `thesis_id`, `abstract`) VALUES
 INSERT INTO `tblthesis_abstract` (`id`, `thesis_id`, `abstract`) VALUES
 (7, 'CCS', 'Sample'),
 (8, 'CCS098', 'LALALALA\r\n\r\nLALALALA\r\n\r\nLALLAALALA'),
-(9, 'CC2', 'Activity diagrams tell you what happens, but they do not tell you who does what. In programming, this means that the diagram does not convey which class is responsible for each activity. In domain modeling, this means that the diagram does not convey which people or departments are responsible for each.       \r\n\r\nActivity diagrams tell you what happens, but they do not tell you who does what. In programming, this means that the diagram does not convey which class is responsible for each activity. In domain modeling, this means that the diagram does not convey which people or departments are responsible for each .                     ');
+(9, 'CC2', 'Activity diagrams tell you what happens, but they do not tell you who does what. In programming, this means that the diagram does not convey which class is responsible for each activity. In domain modeling, this means that the diagram does not convey which people or departments are responsible for each.       \r\n\r\nActivity diagrams tell you what happens, but they do not tell you who does what. In programming, this means that the diagram does not convey which class is responsible for each activity. In domain modeling, this means that the diagram does not convey which people or departments are responsible for each .                     '),
+(10, 'R2123A3C', 'The researchers truly appreciate the efforts given by the creator/s or developer/s of a certain project, especially thesis. Data gathering is one of the fundamental phase to create thesis. In respect of data gathering, researchers allow themselves to conduct researches for the development of their project. Basically, the review of related literature and studies gave relevant ideas for the would-be systemâ€™s features.\r\n	The purpose of research was widely used in project making. Aside from that, the importance of having a copy of various documents with regards to researches were in demand. Therefore, the researchers came up with an idea of creating a research management system for University of Makati that focuses on viewing and/or downloading of thesis documents through scanned or softcopy. \r\nThe researchers developed Thesys: A Research Management System University of Makati that aimed to help those researchers to find quick and easy way thesis references. This could lessen the difficulties of the researchers in respect of thesis searching.\r\nFurthermore, the project could also increase the efficiency of conducting researches in thesis area inside the library. User could get benefit from the developed project as it reached the purpose of technology in making research works and activities even faster.'),
+(11, 'R6AE7AAA', 'Resources or references are necessary in creating projects. Modern techniques in project making are absolutely in demand. In college, a project like thesis is produced by searching and initiating some theoretical ideas and technical skills. Thesis serves as one factor to train students in terms of their expertise, talent, critical thinking skill, attitude, performance and ability to solve problems. \r\nSearching and data gathering help the researchers to make the project feasible. In addition, researchers seek for relevant information or related studies to deal with their project. On the other hand, the availability of those resources or references is difficult to find for quite some time. Students give lots of efforts to look for those and they are having a hard time looking for the data or inputs they needed. They encounter problems, like where and how they will get the necessary information to look for the possible related studies to include for their thesis. \r\n'),
+(12, 'R6AE7AAA', 'Resources or references are necessary in creating projects. Modern techniques in project making are absolutely in demand. In college, a project like thesis is produced by searching and initiating some theoretical ideas and technical skills. Thesis serves as one factor to train students in terms of their expertise, talent, critical thinking skill, attitude, performance and ability to solve problems. \r\nSearching and data gathering help the researchers to make the project feasible. In addition, researchers seek for relevant information or related studies to deal with their project. On the other hand, the availability of those resources or references is difficult to find for quite some time. Students give lots of efforts to look for those and they are having a hard time looking for the data or inputs they needed. They encounter problems, like where and how they will get the necessary information to look for the possible related studies to include for their thesis. \r\n'),
+(13, '', 'Resources or references are necessary in creating projects. Modern techniques in project making are absolutely in demand. In college, a project like thesis is produced by searching and initiating some theoretical ideas and technical skills. Thesis serves as one factor to train students in terms of their expertise, talent, critical thinking skill, attitude, performance and ability to solve problems. \r\nSearching and data gathering help the researchers to make the project feasible. In addition, researchers seek for relevant information or related studies to deal with their project. On the other hand, the availability of those resources or references is difficult to find for quite some time. Students give lots of efforts to look for those and they are having a hard time looking for the data or inputs they needed. They encounter problems, like where and how they will get the necessary information to look for the possible related studies to include for their thesis. \r\n'),
+(14, 'RDE9AB90', 'Resources or references are necessary in creating projects. Modern techniques in project making are absolutely in demand. In college, a project like thesis is produced by searching and initiating some theoretical ideas and technical skills. Thesis serves as one factor to train students in terms of their expertise, talent, critical thinking skill, attitude, performance and ability to solve problems. \r\nSearching and data gathering help the researchers to make the project feasible. In addition, researchers seek for relevant information or related studies to deal with their project. On the other hand, the availability of those resources or references is difficult to find for quite some time. Students give lots of efforts to look for those and they are having a hard time looking for the data or inputs they needed. They encounter problems, like where and how they will get the necessary information to look for the possible related studies to include for their thesis. \r\n'),
+(15, 'RA10AA78', 'Resources or references are necessary in creating projects. Modern techniques in project making are absolutely in demand. In college, a project like thesis is produced by searching and initiating some theoretical ideas and technical skills. Thesis serves as one factor to train students in terms of their expertise, talent, critical thinking skill, attitude, performance and ability to solve problems. \r\n');
 
 -- --------------------------------------------------------
 
@@ -275,7 +298,12 @@ CREATE TABLE `tblthesis_category` (
 
 INSERT INTO `tblthesis_category` (`id`, `category_id`, `thesis_id`) VALUES
 (2, 1, 'CCS187'),
-(3, 1, 'CCS188');
+(3, 1, 'CCS188'),
+(4, 1, 'R2123A3C'),
+(5, 1, 'R6AE7AAA'),
+(6, 1, 'R6AE7AAA'),
+(7, 1, ''),
+(8, 5, 'RDE9AB90');
 
 -- --------------------------------------------------------
 
@@ -431,7 +459,8 @@ CREATE TABLE `tblthesis_downloads` (
 INSERT INTO `tblthesis_downloads` (`id`, `user_id`, `thesis_id`, `date_and_time`) VALUES
 (3, 'V125A7ED', ' CCS987', '2017-12-01 10:55:04'),
 (4, 'V125A7ED', ' CCS987', '2017-12-01 10:55:04'),
-(5, 'V125A7ED', ' CCS987', '2017-12-01 10:55:54');
+(5, 'V125A7ED', ' CCS987', '2017-12-01 10:55:54'),
+(6, 'FF64B96F', ' RDE9AB9', '2018-02-12 19:09:01');
 
 -- --------------------------------------------------------
 
@@ -452,7 +481,9 @@ CREATE TABLE `tblthesis_evaluators` (
 INSERT INTO `tblthesis_evaluators` (`id`, `evaluator_id`, `thesis_id`) VALUES
 (8, 'E72D9985', 'SMP123'),
 (9, 'EC52ADCB', 'SMP123'),
-(10, 'EDF22AC6', 'CCS456');
+(10, 'EDF22AC6', 'CCS456'),
+(11, 'E8BB0D50', ''),
+(12, 'EA8A2F79', '');
 
 -- --------------------------------------------------------
 
@@ -982,7 +1013,27 @@ INSERT INTO `tblthesis_views` (`id`, `user_id`, `thesis_id`, `date_and_time`) VA
 (496, 'K5140047', 'CC2', '2018-02-07 14:00:47'),
 (497, 'K5140047', 'CC2', '2018-02-07 14:00:51'),
 (498, 'K5140047', 'CC2', '2018-02-07 14:00:58'),
-(499, 'F7CFA03D', 'CCS187', '2018-02-07 14:46:39');
+(499, 'F7CFA03D', 'CCS187', '2018-02-07 14:46:39'),
+(500, 'K5140047', 'CC2', '2018-02-07 15:22:05'),
+(501, 'K5140047', 'CC2', '2018-02-08 16:14:03'),
+(502, 'K9012345', 'CCS098', '2018-02-08 16:17:46'),
+(503, 'K9012345', 'CCS187', '2018-02-08 17:01:36'),
+(504, 'K1198765', 'CCS244', '2018-02-08 17:04:21'),
+(505, 'K1198765', 'CC2', '2018-02-08 17:04:25'),
+(506, 'K1198765', 'CCS098', '2018-02-08 17:04:28'),
+(507, 'K1198765', 'CCS098', '2018-02-08 17:04:30'),
+(508, 'F7CFA03D', 'CCS187', '2018-02-08 18:38:36'),
+(509, 'K9012345', 'CCS187', '2018-02-08 18:38:58'),
+(510, 'K1198765', 'CCS187', '2018-02-08 18:39:22'),
+(511, 'F7CFA03D', 'CCS187', '2018-02-08 18:44:38'),
+(512, 'F7CFA03D', 'CCS187', '2018-02-08 18:50:42'),
+(513, 'F7CFA03D', 'CCS187', '2018-02-08 18:54:44'),
+(514, 'K5140047', 'CC2', '2018-02-08 18:55:02'),
+(515, 'FF64B96F', 'RDE9AB90', '2018-02-12 19:08:46'),
+(516, 'FF64B96F', 'RDE9AB90', '2018-02-12 19:08:58'),
+(517, 'FF64B96F', 'RDE9AB90', '2018-02-12 19:09:25'),
+(518, 'K5140047', 'RDE9AB90', '2018-02-12 19:09:49'),
+(519, 'K5140047', 'RA10AA78', '2018-02-12 19:22:12');
 
 -- --------------------------------------------------------
 
@@ -1010,6 +1061,9 @@ INSERT INTO `tblusers` (`user_id`, `last_name`, `first_name`, `middle_initial`, 
 ('A759D77B', 'ALAR', 'HERNAN', 'S', '2017-12-20', 'ADMINISTRATOR', 'INACTIVE'),
 ('F1234567', 'DORIN', 'ROMMEL', 'L', '2017-12-20', 'FACULTY', 'INACTIVE'),
 ('F7CFA03D', 'GULO', 'RHEA MARIE', 'N', '2018-02-28', 'FACULTY', 'ACTIVE'),
+('FEE8F83E', 'OLIMBERIO', 'DANIEL', 'C', '2018-03-12', 'FACULTY', 'ACTIVE'),
+('FF1D2B1E', 'CASTILLO', 'ERNALYN', 'S', '2018-03-12', 'FACULTY', 'ACTIVE'),
+('FF64B96F', 'OLIMBERIO', 'DANIEL', 'C', '2018-03-12', 'FACULTY', 'ACTIVE'),
 ('K1120123', 'VILLAVER', 'RAY VINCENT PHILLIP', 'D', '0000-00-00', 'STUDENT', 'ACTIVE'),
 ('K1120945', 'CABUSORA', 'MARK JOSEPH', 'L', '0000-00-00', 'ADMINISTRATOR', 'INACTIVE'),
 ('K1123412', 'MARAYAN', 'HAZEL', '', '2017-12-20', 'STUDENT', 'ACTIVE'),
@@ -1023,7 +1077,8 @@ INSERT INTO `tblusers` (`user_id`, `last_name`, `first_name`, `middle_initial`, 
 ('K9012345', 'RIVA', 'AIRA', 'N', '2018-02-28', 'STUDENT', 'ACTIVE'),
 ('V1234567', 'NOROÃ‘A', 'ARIANE ROSE', 'C', '0000-00-00', 'VISITOR', 'ACTIVE'),
 ('V125A7ED', 'PILAPIL', 'DELICIA', 'C', '2017-12-24', 'VISITOR', 'ACTIVE'),
-('V2345678', 'LITERAL', 'CRISTIAN', 'M', '0000-00-00', 'VISITOR', 'INACTIVE');
+('V2345678', 'LITERAL', 'CRISTIAN', 'M', '0000-00-00', 'VISITOR', 'INACTIVE'),
+('V40EFA6D', 'RECANA', 'ELLA', 'G', '2018-03-12', 'VISITOR', 'ACTIVE');
 
 --
 -- Indexes for dumped tables
@@ -1171,7 +1226,7 @@ ALTER TABLE `tblusers`
 -- AUTO_INCREMENT for table `tblcategory`
 --
 ALTER TABLE `tblcategory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tblcitation_format`
 --
@@ -1186,22 +1241,22 @@ ALTER TABLE `tbldepartment`
 -- AUTO_INCREMENT for table `tblpasswords`
 --
 ALTER TABLE `tblpasswords`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `tblproponents`
 --
 ALTER TABLE `tblproponents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `tblthesis_abstract`
 --
 ALTER TABLE `tblthesis_abstract`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `tblthesis_category`
 --
 ALTER TABLE `tblthesis_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `tblthesis_citation`
 --
@@ -1211,17 +1266,17 @@ ALTER TABLE `tblthesis_citation`
 -- AUTO_INCREMENT for table `tblthesis_downloads`
 --
 ALTER TABLE `tblthesis_downloads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tblthesis_evaluators`
 --
 ALTER TABLE `tblthesis_evaluators`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `tblthesis_views`
 --
 ALTER TABLE `tblthesis_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=500;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=520;
 --
 -- Constraints for dumped tables
 --
