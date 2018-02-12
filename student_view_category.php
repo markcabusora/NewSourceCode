@@ -168,7 +168,7 @@
             <?php
             if(isset($_GET['selectedCategory']))
             {
-              $queryCategory = "SELECT * FROM tblCategory";
+              $queryCategory = "SELECT * FROM tblCategory ORDER BY category_name";
               $categoryResult = mysqli_query($conn, $queryCategory);
 
               while($rowCategory = mysqli_fetch_array($categoryResult))
@@ -224,7 +224,7 @@
                     $authorsResult = mysqli_query($conn, $queryAuthors);
             ?>
             <div class="box-body">
-              <a href="users_thesis_view.php?thesis_id=<?php echo $rowSelectedTheses['thesis_id']?>"><h4><?php echo $rowSelectedTheses['thesis_title']?></h4></a>
+              <a href="student_thesis_view.php?thesis_id=<?php echo $rowSelectedTheses['thesis_id']?>"><h4><?php echo $rowSelectedTheses['thesis_title']?></h4></a>
               <?php
                   while($rowAuthors = mysqli_fetch_array($authorsResult))
                   {

@@ -27,17 +27,6 @@
 
   }
 
-  
-
-  // function AutoGenerateRequestID() { 
-
-  //           $s = strtoupper(md5(uniqid(rand(),true)));
- 
-  //           $guidText = str_pad('R',8,substr($s,0,9));
-     
-  //           return $guidText;
-  //       }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -182,9 +171,9 @@
 
         <div class="col-md-6">
           <h3><center>Your upload code is:<br><br>
-          <form action="users_approved_thesis.php" method="post">
-            <input type="text" name="txtUploadCode" class="form-control" readonly="readonly" style="width: 20%; text-align: center; font-size: 20px;" value="<?php echo $uploadCode;?>"><br><br>
-            <p><h3>Enter upload code here: </h3><br><input type="text" name="txtUploadCodeInput" class="form-control" style="width: 20%; text-align: center";></p><br>
+          <form action="users_approved_requests.php" method="post">
+            <input type="text" name="txtUploadCode" class="form-control" readonly="readonly" style="width: 30%; text-align: center; font-size: 20px;" value="<?php echo $uploadCode;?>"><br><br>
+            <p><h3>Enter upload code here: </h3><br><input type="text" name="txtUploadCodeInput" class="form-control" style="width: 30%; text-align: center; font-size: 20px;"></p><br>
           <input type="submit" class="btn btn-flat btn-primary btn-lg" value="Enter Code" name="btnEnterCode">
           </center></h3>
           </form>
